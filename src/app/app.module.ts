@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ClimatemapComponent } from './climatemap/climatemap.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClimatemapComponent
   ],
   imports: [
     BrowserModule,
