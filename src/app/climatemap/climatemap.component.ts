@@ -7,23 +7,20 @@ declare const L:any;
   styleUrls: ['./climatemap.component.scss']
 })
 export class ClimatemapComponent implements OnInit {
-  
-  
+  leafletTestText = 'Leaflet and Esri-leaflet prototype with Angular 4';
+   
   constructor() {
-    
-  }
+   }
 
   ngOnInit() {
     const osmUrl = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     const  osm = new L.TileLayer(osmUrl, {minZoom: 3 , maxZoom: 12});
-    
     const map = L.map('leafletmap', {
       zoomControl: false,
       center: L.latLng(35.29, -112),
       zoom: 5,
       minZoom: 4,
-      maxZoom: 12,
-      layers: [osm]
+      maxZoom: 12      
       });
 
     L.esri.basemapLayer("Gray").addTo(map);
@@ -36,7 +33,6 @@ export class ClimatemapComponent implements OnInit {
 
       
   }
-   leafletTestText = 'tester3';
 
    
    
