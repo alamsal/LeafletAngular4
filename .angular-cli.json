@@ -19,9 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "ecol-viewer",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/leaflet/dist/leaflet.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/leaflet/dist/leaflet.js","../node_modules/esri-leaflet/dist/esri-leaflet.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
