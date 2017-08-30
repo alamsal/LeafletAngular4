@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as L from 'leaflet';
+declare const L:any;
 
 @Component({
   selector: 'ecol-viewer-climatemap',
@@ -8,16 +8,15 @@ import * as L from 'leaflet';
 })
 export class ClimatemapComponent implements OnInit {
   
-
+  
   constructor() {
-
+    
   }
 
   ngOnInit() {
-
-    const osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const osmUrl = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     const  osm = new L.TileLayer(osmUrl, {minZoom: 3 , maxZoom: 12});
-
+    
     const map = L.map('leafletmap', {
       zoomControl: false,
       center: L.latLng(35.29, -112),
@@ -27,11 +26,19 @@ export class ClimatemapComponent implements OnInit {
       layers: [osm]
       });
 
+    L.esri.basemapLayer("Gray").addTo(map);
 
+    const andreas = L.tileLayer.wms('//fs.bioe.orst.edu:6443/arcgis/services/SoCal_SEVA/biodiv_ssolnw/ImageServer/WMSServer', {
+      layers: '0',
+      format: 'image/png',
+      transparent: true,
+  }).addTo(map);
+
+      
   }
    leafletTestText = 'tester3';
 
-
+   
    
   
 
